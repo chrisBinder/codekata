@@ -7,10 +7,10 @@ import java.util.Collection;
 import java.util.Collections;
 import org.junit.jupiter.api.Test;
 
-public class TitleCaseFormatterTest {
+class TitleCaseFormatterTest {
 
   @Test
-  public void titleCaseTest_strEmpty() {
+  void titleCaseTest_strEmpty() {
 
     final Collection<String> lowercaseWords = Collections.emptyList();
     final String input = "dies ist EIN einfacher TItel";
@@ -23,7 +23,7 @@ public class TitleCaseFormatterTest {
   }
 
   @Test
-  public void titleCaseTest_simpleSentence() {
+  void titleCaseTest_simpleSentence() {
 
     final Collection<String> lowercaseWords = Arrays.asList("ist", "ein", "oft", "der", "die", "das", "dies");
     final String input = "dies ist EIN einfacher TItel";
@@ -36,7 +36,7 @@ public class TitleCaseFormatterTest {
   }
 
   @Test
-  public void titleCaseTest_allEmpty() {
+  void titleCaseTest_allEmpty() {
 
     final Collection<String> lowercaseWords = Collections.singletonList("");
     final String input = "";
@@ -49,7 +49,7 @@ public class TitleCaseFormatterTest {
   }
 
   @Test
-  public void titleCaseTest_multipleSpacesAndTabs() {
+  void titleCaseTest_multipleSpacesAndTabs() {
 
     final Collection<String> lowercaseWords = Arrays.asList("ist", "ein", "oft", "der", "die", "das", "dies");
     final String input = "dies\tist  EIN\t\teinfacher  TItel";

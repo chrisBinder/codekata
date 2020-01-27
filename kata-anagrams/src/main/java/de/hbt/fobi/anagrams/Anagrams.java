@@ -1,44 +1,56 @@
 package de.hbt.fobi.anagrams;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
+import java.util.Objects;
+import java.util.Set;
+import java.util.TreeSet;
 import java.util.stream.Collectors;
 
 public class Anagrams {
 
-  public static void main(String[] args) throws IOException {
-    File file = new File("d:\\trainings\\codekata\\wordlist.txt");
-    BufferedReader reader = new BufferedReader(new FileReader(file));
-    String str;
-    Collection<String> strings = new ArrayList<>();
-    while ((str = reader.readLine()) != null) {
-      strings.add(str);
-    }
-    Collection<String> anagramList = new Anagrams().createAnagramList(strings);
-    anagramList.forEach(System.out::println);
-    System.out.println("Anagrams: " + anagramList.size());
+  private final Collection<String> strings;
+
+  public Anagrams(Collection<String> strings) {
+    this.strings = strings;
   }
 
-  public Collection<String> createAnagramList(Collection<String> strings) {
-    Map<List<Character>, StringBuilder> map = new HashMap<>();
+  public Collection<Set<String>> createAnagramList() {
+    Map<AnagramKey, Set<String>> map = new HashMap<>();
     for (String string : strings) {
-      List<Character> charList = string.toLowerCase().chars().mapToObj(c -> (char) c).sorted()
-          .collect(Collectors.toList());
-      StringBuilder anagrams = map.get(charList);
-      if (anagrams != null) {
-        anagrams.append(" ");
-        anagrams.append(string);
-      } else {
-        map.put(charList, new StringBuilder(string));
-      }
+      AnagramKey anagramKey = new AnagramKey(string);
+      Set<String> anagrams = map.computeIfAbsent(anagramKey, k -> new TreeSet<>());
+      anagrams.add(string);
     }
-    return map.values().stream().map(StringBuilder::toString).collect(Collectors.toList());
+    return new ArrayList<>(map.values());
+  }
+
+  public static class AnagramKey {
+
+    private final Collection<Character> characters;
+
+    public AnagramKey(String string) {
+      this.characters = string.toLowerCase().chars().mapToObj(c -> (char) c).sorted()
+          .collect(Collectors.toList());
+    }
+
+    @Override
+    public boolean equals(Object o) {
+      if (this == o) {
+        return true;
+      }
+      if (o == null || getClass() != o.getClass()) {
+        return false;
+      }
+      AnagramKey that = (AnagramKey) o;
+      return characters.equals(that.characters);
+    }
+
+    @Override
+    public int hashCode() {
+      return Objects.hash(characters);
+    }
   }
 }
