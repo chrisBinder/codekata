@@ -1,0 +1,17 @@
+/.*
+**/build/
+!**/src/**
+*.hprof
+**/lombok.config
+*.log
+
+### IntelliJ IDEA ###
+*.iws
+*.iml
+*.ipr
+**/out/
+
+### Eclipse
+**/.classpath
+**/.project
+**/.settings/
