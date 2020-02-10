@@ -2,6 +2,7 @@ rootProject.name = projectname
 
 include 'kata-anagrams'
 include 'kata-titlecase'
+include 'kata-countingcode'
 
 rootProject.children.each { subproject ->
     subproject.buildFileName = "${subproject.name}.gradle"
