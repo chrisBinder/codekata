@@ -7,7 +7,6 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 class CountingCodeTest {
-
   @Test
   public void testEmpty() {
     CountingCode countingCode = new CountingCode();
@@ -57,6 +56,22 @@ class CountingCodeTest {
         "    }",
         "",
         "}");
+    CountingCode countingCode = new CountingCode();
+    int count = countingCode.count(code);
+    Assertions.assertThat(count).isEqualTo(5);
+  }
+
+  @Test
+  public void testJavaClassWithCommentsComplex2() {
+    Collection<String> code = Arrays.asList(
+        "int i = 0;/*****",
+        "Dies ist ein Kommentar",
+        "Hier hört der Kommentar auf */ i++;",
+        "/* Ein neuer Kommentar",
+        "// Hier ist der Kommentar vorbei *//**/",
+        "i--; // Diese Zeile muss gezählt werden */",
+        "/* 123 */ i++; /* 345 */",
+        "/* 4323423 */ i++;");
     CountingCode countingCode = new CountingCode();
     int count = countingCode.count(code);
     Assertions.assertThat(count).isEqualTo(5);
