@@ -66,14 +66,25 @@ class CountingCodeTest {
     Collection<String> code = Arrays.asList(
         "int i = 0;/*****",
         "Dies ist ein Kommentar",
-        "Hier hört der Kommentar auf */ i++;",
+        "Hier hoert der Kommentar auf */ i++;",
         "/* Ein neuer Kommentar",
         "// Hier ist der Kommentar vorbei *//**/",
-        "i--; // Diese Zeile muss gezählt werden */",
+        "i--; // Diese Zeile muss gezaehlt werden /*",
         "/* 123 */ i++; /* 345 */",
         "/* 4323423 */ i++;");
     CountingCode countingCode = new CountingCode();
     int count = countingCode.count(code);
     Assertions.assertThat(count).isEqualTo(5);
+
+    int i = 0;/*****
+     Dies ist ein Kommentar
+     Hier hoert der Kommentar auf */i++;
+    /* Ein neuer Kommentar
+    // Hier ist der Kommentar vorbei *//**/
+    i--; // Diese Zeile muss gezaehlt werden /*
+    /* 123 */
+    i++; /* 345 */
+    /* 4323423 */
+    i++;
   }
 }

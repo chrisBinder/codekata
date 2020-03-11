@@ -7,11 +7,11 @@ import java.util.Collection;
  *
  * <h1>Kata13: Counting Code Lines</h1>
  * <p>Counting lines of code in Java source is not quite as simple as it seems.</p>
- * <p>This week let’s write something vaguely useful: a utility that counts the number of
+ * <p>This week let's write something vaguely useful: a utility that counts the number of
  * lines of actual code in a Java source file. For the purpose of this exercise, a line is counted if it contains
  * something other than whitespace or text in a comment.</p>
  * <p>Remember that Java comments are either // to the end of line, or /* to the next &#42;/.
- * The block comments do not nest.There may be multiple /* … &#42;/ comments on a line. Whitespace includes
+ * The block comments do not nest.There may be multiple /* ... &#42;/ comments on a line. Whitespace includes
  * tabs,spaces,carriage returns,and vertical tabs.Oh,and remember that comment start sequences that appear inside Java
  * strings should be ignored.</p>
  * <h1>Goals of the Kata</h1>
