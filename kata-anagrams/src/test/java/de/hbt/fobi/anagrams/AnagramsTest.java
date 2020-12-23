@@ -13,7 +13,7 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 import org.assertj.core.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.Test;
 
 class AnagramsTest {
 

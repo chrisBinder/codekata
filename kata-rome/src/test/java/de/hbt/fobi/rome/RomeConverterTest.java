@@ -1,7 +1,7 @@
 package de.hbt.fobi.rome;
 
 import org.assertj.core.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.Test;
 
 public class RomeConverterTest {
 

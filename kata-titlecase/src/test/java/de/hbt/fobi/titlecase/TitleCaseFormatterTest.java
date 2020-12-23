@@ -1,11 +1,12 @@
 package de.hbt.fobi.titlecase;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.testng.annotations.Test;
 
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
-import org.junit.jupiter.api.Test;
+import static org.assertj.core.api.Assertions.*;
 
 class TitleCaseFormatterTest {
 
@@ -18,7 +19,7 @@ class TitleCaseFormatterTest {
 
     String result = new TitleCaseFormatter().format(input, lowercaseWords);
 
-    assertEquals(expectedResult, result);
+    assertThat(expectedResult).isEqualTo(result);
 
   }
 
@@ -31,7 +32,7 @@ class TitleCaseFormatterTest {
 
     String result = new TitleCaseFormatter().format(input, lowercaseWords);
 
-    assertEquals(expectedResult, result);
+    assertThat(expectedResult).isEqualTo(result);
 
   }
 
@@ -44,8 +45,7 @@ class TitleCaseFormatterTest {
 
     String result = new TitleCaseFormatter().format(input, lowercaseWords);
 
-    assertEquals(expectedResult, result);
-
+    assertThat(expectedResult).isEqualTo(result);
   }
 
   @Test
@@ -57,8 +57,7 @@ class TitleCaseFormatterTest {
 
     String result = new TitleCaseFormatter().format(input, lowercaseWords);
 
-    assertEquals(expectedResult, result);
-
+    assertThat(expectedResult).isEqualTo(result);
   }
 
 }

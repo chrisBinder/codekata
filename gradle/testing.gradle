@@ -1,0 +1,17 @@
+configurations {
+    test {
+        exclude module: "junit"
+    }
+}
+
+//ext {
+//    maxTestParallelForks = Runtime.runtime.availableProcessors().intdiv(2) ?: 1
+//}
+
+tasks.withType(Test) {
+    useTestNG()
+
+//    maxParallelForks = maxTestParallelForks
+
+    reports.html.destination = file("${reporting.baseDir}/${name}")
+}
