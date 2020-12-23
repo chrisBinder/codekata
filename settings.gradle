@@ -1,5 +1,8 @@
 rootProject.name = projectname
 
+include 'kata-most-common-word'
+include 'kata-k-closest-points-to-origin'
+include 'kata-domino-swapper'
 include 'kata-anagrams'
 include 'kata-titlecase'
 include 'kata-countingcode'
