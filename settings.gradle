@@ -1,5 +1,6 @@
 rootProject.name = projectname
 
+include 'kata-two-sum'
 include 'kata-most-common-word'
 include 'kata-k-closest-points-to-origin'
 include 'kata-domino-swapper'
